@@ -14,7 +14,7 @@
 				<h1 class="centro">Listagem de Clientes</h1>
 				<div class="conteudo">
 					<h:form id="form" role="form" class="table-responsive">
-		    			<h:dataTable value="#{cliente_controller.listagem}" var="obj"
+		    			<h:dataTable value="#{cliente_controller.lista}" var="obj"
 			    			styleClass="table table-striped tabela"
 			    			headerClass="order-table-header"
 			    			rowClasses="order-table-odd-row,order-table-even-row" >
@@ -41,21 +41,21 @@
 			 
 			    			<h:column>
 			    				<f:facet name="header">Ações</f:facet>
-			    				<h:commandButton styleClass="btn btn-success" value="Edit"  action="#{pedidos.incAlt()}">
-			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{obj}"></f:setPropertyActionListener>
+			    				<h:commandButton styleClass="btn btn-success" value="Edit"  action="#{cliente_controller.incAlt()}">
+			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
 			    				</h:commandButton>
 			    				 &nbsp;
-			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{pedidos.remove()}">
-			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{obj}"></f:setPropertyActionListener>
+			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{cliente_controller.remove()}">
+			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
 			    				</h:commandButton>
 			    			</h:column>
 			 
 			 
 			    		</h:dataTable>
 							
-	    				<h:commandButton styleClass="btn btn-primary" value="Inserir" action="#{pedidos.prepareInsert}" />	
+	    				<h:commandButton styleClass="btn btn-primary" value="Inserir" action="#{cliente_controller.prepareInsert}" />	
 	    				&nbsp;
-	    				<h:commandButton styleClass="btn btn-primary" value="Início" action="#{pedidos.home}" />	
+	    				<h:commandButton styleClass="btn btn-primary" value="Início" action="#{geral_controller.home}" />	
 					</h:form>							
 				</div>
  			</ui:define>
