@@ -28,10 +28,12 @@ public class ClienteController {
 		return "lista_clientes.xhtml?faces-redirect=true";
 	}
 	
-	public void save(){
+	public String save(){
+		if(entity.getId() == null)
 		dao.insert(entity);
+		dao.update(entity);
 		entity = new ClienteEntity();
-		listagem();
+		return listagem();
 	}
 	
 	public void remove(){
@@ -50,6 +52,11 @@ public class ClienteController {
 		return "inserir_cliente.xhtml?faces-redirect=true";
 	}	
 	
+	public String metodo(){
+		System.out.println("ESPECIAL:" + entity.getNome());
+		return "false";
+	}	
+
 	//GETTERS AND SETTERS
 	
 	public ClienteEntity getEntity() {

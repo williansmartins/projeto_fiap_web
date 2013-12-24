@@ -35,6 +35,9 @@ body{
 	width:950px;
 	height:385px;
 	overflow: hidden;	
+	background-image:url(../img/bg-footer.png);/**/
+	background-repeat: repeat-x;
+	background-position: 136px 302px;
 }
 /*-----------------------------------------------------------------------*/
 .floatLeft{

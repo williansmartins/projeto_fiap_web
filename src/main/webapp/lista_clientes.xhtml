@@ -41,13 +41,15 @@
 			 
 			    			<h:column>
 			    				<f:facet name="header">Ações</f:facet>
-			    				<h:commandButton styleClass="btn btn-success" value="Edit"  action="#{cliente_controller.incAlt()}">
+			    				<h:commandButton styleClass="btn btn-success" value="Editar"  action="#{cliente_controller.incAlt()}">
 			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
 			    				</h:commandButton>
 			    				 &nbsp;
-			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{cliente_controller.remove()}">
+			    				<input type="button" class="btn btn-danger" value="Remover" onclick="confirmacao(#{obj.id})"/>
+			    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{cliente_controller.remove()}">
 			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
 			    				</h:commandButton>
+			    				
 			    			</h:column>
 			 
 			 
@@ -56,6 +58,9 @@
 	    				<h:commandButton styleClass="btn btn-primary" value="Inserir" action="#{cliente_controller.prepareInsert}" />	
 	    				&nbsp;
 	    				<h:commandButton styleClass="btn btn-primary" value="Início" action="#{geral_controller.home}" />	
+	    				<div id="dialog-confirm" title="Aviso de exclusão" style="display:none">
+						  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Deseja realmente remover este item?</p>
+						</div>
 					</h:form>							
 				</div>
  			</ui:define>
