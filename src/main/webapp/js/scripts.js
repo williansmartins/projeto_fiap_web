@@ -8,7 +8,7 @@ function confirmacao(id){
     $( "#dialog-confirm" ).dialog({
         resizable: false,
         height:140,
-        modal: true,
+        modal: true, 
         buttons: {
           "Sim": function() {
             $( this ).dialog( "close" );
