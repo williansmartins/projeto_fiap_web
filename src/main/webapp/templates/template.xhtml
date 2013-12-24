@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <ui:insert name="titulo"></ui:insert>
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+	    <link rel="shortcut icon" href="img/airplane.png" type="image/x-icon" />
+	</h:head>
+	<body> 
+		<div class="wrapper" >                  
+	        <div id="vitrine">
+	        	<div class="logo_clicavel"></div>
+	      		<div class="menu">
+					<ul>
+						<li class="trechos">
+							<span class="img"></span>
+							<a href=""><span id="">Trechos</span></a>
+						</li>
+						<li class="assentos">
+							<span class="img"></span>
+							<a><span id="">Assentos</span></a>
+						</li>
+						<li class="clientes">
+							<span class="img"></span>
+							<a href="lista_clientes.xhtml"><span id="">Clientes</span></a>
+						</li>
+						<li class="reservas">
+							<span class="img"></span>
+							<a><span id="">Reservas</span></a>
+						</li>
+					</ul>
+				</div>
+	        </div>
+		    <div id="palco">
+		    	<ui:insert name="palco"></ui:insert>
+		  	</div>
+	  	</div>
+       	<div id="footer">
+	    	<ui:insert name="rodape"></ui:insert>
+      	</div>
+    	<script src="js/jquery-2.0.0.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/scripts.js"></script>
+	</body>
+</html>
