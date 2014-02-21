@@ -19,7 +19,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	List<T> lista;
 	
 	public JpaGenericDao() {
-		emf = Persistence.createEntityManagerFactory("mysql-unity-persistence");
+		emf = Persistence.createEntityManagerFactory("mysql-local");
 		entityManager = getEntityManager();
 	}
 	
@@ -51,22 +51,8 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> findEspecific(Integer id) {
-		entityManager = getEntityManager();	
-		entityManager.getTransaction().begin();
-		String jpql = "select a from Avaliacao a";
-																			
-		Query query = entityManager.createQuery(jpql);
-		lista = query.getResultList();
-		System.out.println("BUSCANDO :" + id);
-		entityManager.getTransaction().commit();
-		if(lista.size() > 0){
-			entityManager.close();
-			return lista;
-		}else{
-			entityManager.close();
-			return null;
-		}
+	public List<T> findEspecific(T t) {
+		return lista;
 	}
 	
 	@Override

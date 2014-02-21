@@ -14,7 +14,7 @@ public class ClienteMassa {
 	JpaGenericDao<ClienteEntity> dao = new ClienteDaoImpl();
 	
 	@Test
-	public void inserirObjeto() {
+	public void inserirClientes() {
 		ClienteEntity obj = new ClienteEntity();
 		
 		for (int i = 0; i < 10 ; i ++) {

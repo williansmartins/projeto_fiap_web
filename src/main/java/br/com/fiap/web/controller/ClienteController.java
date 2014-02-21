@@ -2,8 +2,11 @@ package br.com.fiap.web.controller;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.fiap.web.dao.ClienteDaoImpl;
 import br.com.fiap.web.dao.JpaGenericDao;
@@ -19,13 +22,30 @@ public class ClienteController {
 
 	public ClienteController(){
 		entity = new ClienteEntity();
-		lista = dao.findAll();
+		listagem();
+	}
+	
+	public String login(){
+		List<ClienteEntity> lista = dao.findEspecific(entity);
+		HttpSession session = (HttpSession)FacesContext
+				.getCurrentInstance()
+				.getExternalContext()
+				.getSession(true);
+				
+		if( lista.size() > 0 ) {
+			session.setAttribute("autenticado_chave", "ok");
+			listagem();
+			return "seguro/lista_clientes.xhtml?faces-redirect=true";
+		}else{
+            FacesContext.getCurrentInstance().addMessage("field_id", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário ou senha incorreta", "error message2")); 
+		}
+		return "";
 	}
 	
 	public String listagem(){
 		entity = new ClienteEntity();
 		lista = dao.findAll();
-		return "lista_clientes.xhtml?faces-redirect=true";
+		return "seguro/lista_clientes.xhtml?faces-redirect=true";
 	}
 	
 	public String save(){
@@ -43,13 +63,13 @@ public class ClienteController {
 	
 	public String incAlt(){
 		entity = dao.findById(entity.getId());
-		return "inserir_cliente.xhtml";
+		return "seguro/inserir_cliente.xhtml";
 	}	
 	
 	public String prepareInsert(){
 		entity = new ClienteEntity();
 		System.out.println("insert");
-		return "inserir_cliente.xhtml?faces-redirect=true";
+		return "seguro/inserir_cliente.xhtml?faces-redirect=true";
 	}	
 	
 	public String metodo(){
