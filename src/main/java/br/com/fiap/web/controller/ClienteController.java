@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import br.com.fiap.web.dao.ClienteDaoImpl;
 import br.com.fiap.web.dao.JpaGenericDao;
 import br.com.fiap.web.model.ClienteEntity;
+import br.com.fiap.web.utils.Redirecionador;
 
 @ManagedBean(name="cliente_controller")
 @SessionScoped
@@ -35,9 +36,10 @@ public class ClienteController {
 		if( lista.size() > 0 ) {
 			session.setAttribute("autenticado_chave", "ok");
 			listagem();
-			return "seguro/lista_clientes.xhtml?faces-redirect=true";
+			new Redirecionador().redirecionar("lista_clientes.xhtml");
+			return "";
 		}else{
-            FacesContext.getCurrentInstance().addMessage("field_id", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usu√°rio ou senha incorreta", "error message2")); 
+            FacesContext.getCurrentInstance().addMessage("field_id", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usu·rio ou senha incorreta", "error message2")); 
 		}
 		return "";
 	}
@@ -45,7 +47,8 @@ public class ClienteController {
 	public String listagem(){
 		entity = new ClienteEntity();
 		lista = dao.findAll();
-		return "seguro/lista_clientes.xhtml?faces-redirect=true";
+		new Redirecionador().redirecionar("lista_clientes.xhtml");
+		return "";
 	}
 	
 	public String save(){
@@ -63,20 +66,17 @@ public class ClienteController {
 	
 	public String incAlt(){
 		entity = dao.findById(entity.getId());
-		return "seguro/inserir_cliente.xhtml";
+		new Redirecionador().redirecionar("inserir_cliente.xhtml");
+		return "";
 	}	
 	
 	public String prepareInsert(){
 		entity = new ClienteEntity();
 		System.out.println("insert");
-		return "seguro/inserir_cliente.xhtml?faces-redirect=true";
+		new Redirecionador().redirecionar("inserir_cliente.xhtml");
+		return "";
 	}	
 	
-	public String metodo(){
-		System.out.println("ESPECIAL:" + entity.getNome());
-		return "false";
-	}	
-
 	//GETTERS AND SETTERS
 	
 	public ClienteEntity getEntity() {
