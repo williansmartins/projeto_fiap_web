@@ -11,11 +11,11 @@
 				<title>FIAP - Linhas Aéreas - Início</title> 				
  			</ui:define>
  			<ui:define name="palco">
-				<h1 class="centro">Listagem de Assentos</h1>
+				<h1 class="centro">Gerenciamento de Assentos(Vôos disponíveis)</h1>
 				<div class="conteudo">
 					<h:form id="form" role="form" class="table-responsive">
 						<div id="tabela_wrapper">
-			    			<h:dataTable value="#{voo_controller.lista}" var="obj"
+			    			<h:dataTable value="#{assento_controller.listaDeVoos}" var="obj"
 				    			styleClass="table table-striped tabela"
 				    			headerClass="order-table-header"
 				    			rowClasses="order-table-odd-row,order-table-even-row" >
@@ -26,33 +26,20 @@
 				    			</h:column>
 				    			
 				    			<h:column>
-				    				<f:facet name="header">Data</f:facet>
+				    				<f:facet name="header">Vôo</f:facet>
 				    				#{obj.data}
 				    			</h:column>
 				 
 				    			<h:column>
-				    				<f:facet name="header">Preço</f:facet>
-				    				#{obj.preco}
-				    			</h:column>
-				 
-				    			<h:column>
 				    				<f:facet name="header">Ações</f:facet>
-				    				<h:commandButton styleClass="btn btn-success" value="Editar"  action="#{voo_controller.incAlt()}">
-				    					<f:setPropertyActionListener target="#{voo_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
+				    				<h:commandButton styleClass="btn btn-success" value="Gerenciar Assentos"  action="#{assento_controller.gerenciar()}">
+				    					<f:setPropertyActionListener target="#{assento_controller.idDoVoo}" value="#{obj.id}"></f:setPropertyActionListener>
 				    				</h:commandButton>
-				    				 &nbsp;
-				    				<input type="button" class="btn btn-danger" value="Remover" onclick="confirmacao(#{obj.id})"/>
-				    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{voo_controller.remove()}">
-				    					<f:setPropertyActionListener target="#{voo_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
-				    				</h:commandButton>
-				    				
 				    			</h:column>
 				 
 				 
 				    		</h:dataTable>
 						</div>	
-	    				<h:commandButton styleClass="btn btn-primary" value="Inserir" action="#{voo_controller.prepareInsert}" />	
-	    				&nbsp;
 	    				<h:commandButton styleClass="btn btn-primary" value="Início" action="#{geral_controller.home}" />	
 	    				<div id="dialog-confirm" title="Aviso de exclusão" style="display:none">
 						  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Deseja realmente remover este item?</p>

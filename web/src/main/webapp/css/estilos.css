@@ -142,3 +142,19 @@ h1.centro{
 	top: 0;
 	left: 0;
 }
+
+/*-----------------------------------------------------------------------*/
+.assento .labels{
+	height: 39px;
+}
+.assento label{
+	line-height: 32px;
+	margin-right: 7px;
+}
+.assento.conteudo{
+	width: 460px;
+}
+.assento .combos{
+	width: 40%;
+	margin-right: 5px;
+}

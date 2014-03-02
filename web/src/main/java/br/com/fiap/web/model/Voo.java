@@ -58,4 +58,10 @@ public class Voo implements Serializable
 	return serialVersionUID;
     }
 
+    @Override
+    public String toString( )
+    {
+	return "Voo [id=" + id + ", data=" + data + ", preco=" + preco + "]";
+    }
+
 }
