@@ -19,7 +19,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	List<T> lista;
 	
 	public JpaGenericDao() {
-		emf = Persistence.createEntityManagerFactory("mysql-unity-persistence");
+		emf = Persistence.createEntityManagerFactory("manager-mysql-local");
 		entityManager = getEntityManager();
 	}
 	

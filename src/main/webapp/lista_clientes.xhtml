@@ -14,47 +14,48 @@
 				<h1 class="centro">Listagem de Clientes</h1>
 				<div class="conteudo">
 					<h:form id="form" role="form" class="table-responsive">
-		    			<h:dataTable value="#{cliente_controller.lista}" var="obj"
-			    			styleClass="table table-striped tabela"
-			    			headerClass="order-table-header"
-			    			rowClasses="order-table-odd-row,order-table-even-row" >
-			 
-			    			<h:column>
-			    				<f:facet name="header">ID</f:facet>
-			    				#{obj.id}
-			    			</h:column>
-			    			
-			    			<h:column>
-			    				<f:facet name="header">Nome</f:facet>
-			    				#{obj.nome}
-			    			</h:column>
-			 
-			    			<h:column>
-			    				<f:facet name="header">Login</f:facet>
-			    				#{obj.login}
-			    			</h:column>
-			 
-			    			<h:column>
-			    				<f:facet name="header">Senha</f:facet>
-			    				#{obj.senha}
-			    			</h:column>
-			 
-			    			<h:column>
-			    				<f:facet name="header">Ações</f:facet>
-			    				<h:commandButton styleClass="btn btn-success" value="Editar"  action="#{cliente_controller.incAlt()}">
-			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
-			    				</h:commandButton>
-			    				 &nbsp;
-			    				<input type="button" class="btn btn-danger" value="Remover" onclick="confirmacao(#{obj.id})"/>
-			    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{cliente_controller.remove()}">
-			    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
-			    				</h:commandButton>
-			    				
-			    			</h:column>
-			 
-			 
-			    		</h:dataTable>
-							
+						<div id="tabela_wrapper">
+			    			<h:dataTable value="#{cliente_controller.lista}" var="obj"
+				    			styleClass="table table-striped tabela"
+				    			headerClass="order-table-header"
+				    			rowClasses="order-table-odd-row,order-table-even-row" >
+				 
+				    			<h:column>
+				    				<f:facet name="header">ID</f:facet>
+				    				#{obj.id}
+				    			</h:column>
+				    			
+				    			<h:column>
+				    				<f:facet name="header">Nome</f:facet>
+				    				#{obj.nome}
+				    			</h:column>
+				 
+				    			<h:column>
+				    				<f:facet name="header">Login</f:facet>
+				    				#{obj.login}
+				    			</h:column>
+				 
+				    			<h:column>
+				    				<f:facet name="header">Senha</f:facet>
+				    				#{obj.senha}
+				    			</h:column>
+				 
+				    			<h:column>
+				    				<f:facet name="header">Ações</f:facet>
+				    				<h:commandButton styleClass="btn btn-success" value="Editar"  action="#{cliente_controller.incAlt()}">
+				    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
+				    				</h:commandButton>
+				    				 &nbsp;
+				    				<input type="button" class="btn btn-danger" value="Remover" onclick="confirmacao(#{obj.id})"/>
+				    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{cliente_controller.remove()}">
+				    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
+				    				</h:commandButton>
+				    				
+				    			</h:column>
+				 
+				 
+				    		</h:dataTable>
+						</div>	
 	    				<h:commandButton styleClass="btn btn-primary" value="Inserir" action="#{cliente_controller.prepareInsert}" />	
 	    				&nbsp;
 	    				<h:commandButton styleClass="btn btn-primary" value="Início" action="#{geral_controller.home}" />	

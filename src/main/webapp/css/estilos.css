@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-*{ margin:0; padding:0; outline:none; font:12px Arial;text-decoration:none}
+*{ margin:0; padding:0; outline:none; text-decoration:none}
 * img{border:none}
 
 /*-----------------------------------------------------------------------*/
@@ -112,6 +112,13 @@ h1.centro{
 	height: 250px!important;
 	overflow: auto;
 }
+#tabela_wrapper{
+	outline: 1px rgb(255, 0, 0);
+	height: 268px;
+	width: 723px;
+	overflow: auto;
+}
+
 
 /*-----------------------------------------------------------------------*/
 .logo_clicavel:hover {
@@ -125,3 +132,4 @@ h1.centro{
 .labels{
 	height: 60px;
 }
+
