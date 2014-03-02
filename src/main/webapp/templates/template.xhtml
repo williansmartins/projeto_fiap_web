@@ -43,7 +43,11 @@
 				</div>
 	        </div>
 		    <div id="palco">
-		    	<ui:insert name="palco"></ui:insert>
+		    	<ui:insert name="palco">
+   				    <h:messages styleClass="alert alert-danger">
+				    	<h:message for="field_id"></h:message>
+				    </h:messages>
+		    	</ui:insert>
 		  	</div>
 	  	</div>
        	<div id="footer">

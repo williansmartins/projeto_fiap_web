@@ -92,6 +92,9 @@ body{
 .menu .assentos .img{
 	background-position: -20px -156px;
 }
+.menu .voos .img{
+	background-position: -20px -0px;
+}
 /*-----------------------------------------------------------------------*/
 .form1{
 	margin: 0 auto;

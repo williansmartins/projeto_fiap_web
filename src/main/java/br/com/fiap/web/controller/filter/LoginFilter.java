@@ -20,17 +20,18 @@ public class LoginFilter implements Serializable, Filter {
 	@Override  
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {  
   
-        HttpServletRequest req = (HttpServletRequest) request;  
-        HttpSession session = req.getSession();  
-        String chave = (String)session.getAttribute("autenticado_chave");  
-        boolean isLoginPage = req.getServletPath().lastIndexOf("login.xhtml") > -1;
-        		
-        if( !isLoginPage && chave == null) {  
-        	HttpServletResponse res = (HttpServletResponse) response;  
-        	res.sendRedirect( "/projeto_fiap_web2.0/login.xhtml");  
-        } else {  
-        	chain.doFilter(request, response);  
-        }  
+//        HttpServletRequest req = (HttpServletRequest) request;  
+//        HttpSession session = req.getSession();  
+//        String chave = (String)session.getAttribute("autenticado_chave");  
+//        boolean isLoginPage = req.getServletPath().lastIndexOf("login.xhtml") > -1;
+//        		
+//        if( !isLoginPage && chave == null) {  
+//        	HttpServletResponse res = (HttpServletResponse) response;  
+//        	res.sendRedirect( "/projeto_fiap_web2.0/login.xhtml");  
+//        } else {  
+//        	chain.doFilter(request, response);  
+//        }  
+        chain.doFilter(request, response);  
   
     }  
   

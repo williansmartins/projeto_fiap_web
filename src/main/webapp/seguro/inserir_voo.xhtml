@@ -17,19 +17,20 @@
 						<div class="tabela"> 
 						    <div class="labels">
 						        <label for="code">Data:</label>
-						        <h:inputText type="text" class="form-control" value="#{voo_controller.entity.origem}" />
+						        <h:inputText type="text" class="form-control" value="#{voo_controller.entity.data}">
+						        	<f:convertDateTime pattern="dd/MM/yy"/>
+						        </h:inputText>
 						    </div>
 						    <div class="labels">
 						        <label for="code">Preço:</label>
-								<h:inputText type="text" class="form-control" value="#{voo_controller.entity.destino}" />
-						    </div>
+								<h:inputText type="text" class="form-control" value="#{voo_controller.entity.preco}" />
+						    </div> 
 						    <div class="labels">
 						        <label for="code">Trecho:</label>
-								<select class="form-control">
-									<option>dsadasd</option>
-									<option>dasdasd</option>
-									<option>dasdasd</option>
-								</select>
+								<h:selectOneMenu value="#{voo_controller.selectItem}" styleClass="form-control"  >            
+									<f:selectItem itemLabel="Selecione um trecho..."  noSelectionOption="true"/>
+                        			<f:selectItems value="#{voo_controller.listaDeTrechos2}" />
+								</h:selectOneMenu>
 						    </div>
 						</div>
 					    <br />

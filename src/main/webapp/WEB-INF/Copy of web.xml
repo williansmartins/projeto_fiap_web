@@ -34,9 +34,4 @@
 <!-- 	    <filter-name>filter</filter-name>   -->
 <!-- 	    <url-pattern>/seguro/*</url-pattern>   -->
 <!-- 	</filter-mapping> 	 -->
-
-	<context-param>
-		<param-name>com.sun.faces.writeStateAtFormEnd</param-name>
-		<param-value>false</param-value>
-	</context-param>
 </web-app>

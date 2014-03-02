@@ -54,5 +54,13 @@ public class Trecho
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
+
+    @Override
+    public String toString( )
+    {
+	return "Trecho [id=" + id + ", origem=" + origem + ", destino=" + destino + "]";
+    }
+    
+    
     
 }
