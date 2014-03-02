@@ -12,21 +12,11 @@
  			</ui:define>
  			<ui:define name="palco">
 				<div class="conteudo">
-					<h1 class="centro">Tela de Login</h1>
-					<h:form >
-						<div class="tabela"> 
-						    <div class="labels">
-						        <label for="code">Login</label>
-								<h:inputText type="text" class="form-control" value="#{login_controller.entity.login}" />
-						    </div>
-						    <div class="labels">
-						        <label for="code">Senha</label>
-								<h:inputText type="text" class="form-control" value="#{login_controller.entity.senha}" />
-						    </div>
-						</div>
-					    <br />
-					    <h:commandButton action="#{login_controller.login}" class="btn btn-primary " value="Entrar" />
-					</h:form>
+					<h1 class="centro">Tela de Encerramento</h1>
+					<h2 class="centro">Obrigado por utilizar nossos sistemas!</h2>
+					<a class="btn btn-success entrar-novamente" href="#{request.getContextPath()}">
+						Entrar novamente  
+					</a>
 		      	</div>
  			</ui:define>
  			<ui:define name="rodape">

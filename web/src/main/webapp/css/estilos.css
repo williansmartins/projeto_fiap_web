@@ -44,10 +44,20 @@ body{
 	float: left;
 }
 /*-----------------------------------------------------------------------*/
+.identificador{
+	position: absolute;
+	right: 3px;
+	top: 130px;
+	font-style: italic;
+	color: gray;
+	font-weight: bold;
+}
+/*-----------------------------------------------------------------------*/
 .menu{
 	padding-top: 72px;
 	padding-right: 155px;
 	float: right;
+	position: relative;
 }
 .menu ul{
 	height: 50px;
@@ -94,6 +104,9 @@ body{
 }
 .menu .voos .img{
 	background-position: -20px -0px;
+}
+.menu .logout .img{
+	background-position: -24px -117px;
 }
 /*-----------------------------------------------------------------------*/
 .form1{
@@ -157,4 +170,10 @@ h1.centro{
 .assento .combos{
 	width: 40%;
 	margin-right: 5px;
+}
+
+.entrar-novamente{
+	width: 240px;
+	display: block;
+	margin: 0 auto;
 }

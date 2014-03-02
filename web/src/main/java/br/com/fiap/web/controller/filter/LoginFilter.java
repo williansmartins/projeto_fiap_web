@@ -25,13 +25,12 @@ public class LoginFilter implements Serializable, Filter {
         String chave = (String)session.getAttribute("autenticado_chave");  
         boolean isLoginPage = req.getServletPath().lastIndexOf("login.xhtml") > -1;
         		
-        if( !isLoginPage && chave == null) {  
+        if( !isLoginPage && ( chave == null || chave != "ok") ) {  
         	HttpServletResponse res = (HttpServletResponse) response;  
         	res.sendRedirect( "/brain/login.xhtml");  
         } else {  
         	chain.doFilter(request, response);  
         }  
-//        chain.doFilter(request, response);  
   
     }  
   

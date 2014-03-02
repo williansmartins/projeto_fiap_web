@@ -18,6 +18,7 @@
 	        <div id="vitrine">
 	        	<div class="logo_clicavel"></div>
 	      		<div class="menu">
+	      			<p class="identificador">Bem vindo: #{login_controller.entity.nome}</p>
 					<ul>
 						<li class="clientes">
 							<span class="img"></span>
@@ -38,6 +39,10 @@
 						<li class="reservas">
 							<span class="img"></span>
 							<a><span id="">Reservas</span></a>
+						</li>
+						<li class="logout">
+							<span class="img"></span>
+							<a href="#{request.getContextPath()}/Logout"><span id="">Logout</span></a>
 						</li>
 					</ul>
 				</div>
