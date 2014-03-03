@@ -74,13 +74,21 @@ body{
 	padding-top: 14px;
 }
 .menu li a:hover{
-	cursor: pointer;
+/* 	color: rgb(255, 124, 16); */
+/* 	text-decoration: none; */
 }
 
 .menu li a{
 	font-weight: 700;
 	color: rgb(143, 143, 143);
 	font-size: 11px;
+}
+.menu li a.active{
+	font-weight: bold;
+	color: rgb(255, 124, 16);
+	text-decoration: none;
+	font-size: 12px;
+	cursor: pointer;
 }
 .menu li .img{
 	height: 20px;
@@ -91,42 +99,19 @@ body{
 	background-image:url(../img/sprite-menu-superior.png);
 	cursor: pointer;
 }
-.menu .clientes .img{
-	background-position: -20px -100px;
-}
-.menu .clientes .img:hover{
-	background-position: -0px -100px;
-}
-.menu .trechos .img{
-	background-position: -20px -20px;
-}
-.menu .trechos .img:hover{
-	background-position: -0px -20px;
-}
-.menu .voos .img{
-	background-position: -20px -0px;
-}
-.menu .voos .img:hover{
-	background-position: -0px -0px;
-}
-.menu .reservas .img{
-	background-position: -20px 0px;
-}
-.menu .reservas .img:hover{
-	background-position: -0px 0px;
-}
-.menu .assentos .img{
-	background-position: -20px -156px;
-}
-.menu .assentos .img:hover{
-	background-position: -0px -156px;
-}
-.menu .logout .img{
-	background-position: -24px -117px;
-}
-.menu .logout .img:hover{
-	background-position: -4px -117px;
-}
+.menu .clientes .img{	background-position: -20px -100px;}
+.menu .clientes .img.active{	background-position: -0px -100px;}
+.menu .trechos .img{	background-position: -20px -20px;}
+.menu .trechos .img.active{	background-position: -1px -20px;}
+.menu .voos .img{	background-position: -20px -0px;}
+.menu .voos .img.active{	background-position: -0px -0px;}
+.menu .reservas .img{	background-position: -20px 0px;}
+.menu .reservas .img.active{	background-position: -0px 0px;}
+.menu .assentos .img{	background-position: -20px -156px;}
+.menu .assentos .img.active{	background-position: 1px -155px;}
+.menu .logout .img{	background-position: -24px -118px;}
+.menu .logout .img.active{	background-position: -3px -118px;}
+
 /*-----------------------------------------------------------------------*/
 .form1{
 	margin: 0 auto;
