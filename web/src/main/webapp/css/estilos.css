@@ -50,6 +50,10 @@ body{
 	top: 130px;
 	font-style: italic;
 	color: gray;
+	font-weight: normal;
+}
+.identificador span{
+	color: rgb(92, 184, 92);
 	font-weight: bold;
 }
 /*-----------------------------------------------------------------------*/

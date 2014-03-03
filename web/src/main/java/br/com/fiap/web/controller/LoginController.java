@@ -20,57 +20,59 @@ public class LoginController
 {
 
     private ClienteEntity entity;
-    public ClienteEntity getEntity( )
-    {
-        return entity;
-    }
 
-    public void setEntity( ClienteEntity entity )
+    public LoginController()
     {
-        this.entity = entity;
-    }
-
-    public List<ClienteEntity> getLista( )
-    {
-        return lista;
-    }
-
-    public void setLista( List<ClienteEntity> lista )
-    {
-        this.lista = lista;
+	lista = new ArrayList<ClienteEntity>();
+	entity = new ClienteEntity();
     }
 
     private JpaGenericDao<ClienteEntity> dao = new ClienteDaoImpl();
     List<ClienteEntity> lista;
 
-    public LoginController()
-    {
-	lista = new ArrayList<ClienteEntity>();
-	entity = new ClienteEntity("Felipe", "principe", "guerreiro");
-    }
-
     public String login( )
     {
 	List<ClienteEntity> lista = dao.findEspecific( entity );
-	System.out.println(entity);
-	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession( true );
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+		.getExternalContext().getSession( true );
+	entity = lista.get( 0 );
 
-	if ( lista.size() > 0 )
+	if ( lista!=null && lista.size() > 0 )
 	{
 	    session.setAttribute( "autenticado_chave", "ok" );
-	    session.setAttribute( "nome", entity.getNome() );
-	    
-	    System.out.println(session.getAttribute( "nome" ));
-	    
-	    new Redirecionador().redirecionar( "seguro/lista_clientes.xhtml" );
+	    if( entity.getLogin().equalsIgnoreCase( "admin" )){
+		new Redirecionador().redirecionar( "seguro/index.xhtml" );
+	    }else{
+		new Redirecionador().redirecionar( "seguro/index_simples.xhtml" );
+	    }
 	    return "";
 	} else
 	{
-	    FacesContext.getCurrentInstance().
-	    addMessage( "field_id",
-            new FacesMessage( FacesMessage.SEVERITY_ERROR, "Usuário ou senha incorreta", "error message2" ) );
+	    FacesContext.getCurrentInstance().addMessage(
+		    "field_id",
+		    new FacesMessage( FacesMessage.SEVERITY_ERROR,
+			    "Usuário ou senha incorreta", "error message2" ) );
 	}
 	return "";
     }
 
+    public ClienteEntity getEntity( )
+    {
+	return entity;
+    }
+
+    public void setEntity( ClienteEntity entity )
+    {
+	this.entity = entity;
+    }
+
+    public List<ClienteEntity> getLista( )
+    {
+	return lista;
+    }
+
+    public void setLista( List<ClienteEntity> lista )
+    {
+	this.lista = lista;
+    }
 }

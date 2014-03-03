@@ -30,15 +30,6 @@ public class VooController
     Date dataIda;
     Date dataVolta;
 
-    public Integer getSelectItem( )
-    {
-	return selectItem;
-    }
-
-    public void setSelectItem( Integer selectItem )
-    {
-	this.selectItem = selectItem;
-    }
 
     public VooController()
     {
@@ -106,8 +97,8 @@ public class VooController
 	//BRUNO - buscar os vôos com os parâmetros passados
 	lista = dao.findAll();
 
-	new Redirecionador().redirecionar( "resultado_busca_voos.xhtml" );
-	return "resultado_busca_voos.xhtml";
+	new Redirecionador().redirecionar( "resultado_busca_voos_simples.xhtml" );
+	return "resultado_busca_voos_simples.xhtml";
     }
 
     public void reservar( )
@@ -174,6 +165,15 @@ public class VooController
     public List<Voo> getLista( )
     {
 	return lista;
+    }
+    public Integer getSelectItem( )
+    {
+	return selectItem;
+    }
+    
+    public void setSelectItem( Integer selectItem )
+    {
+	this.selectItem = selectItem;
     }
 
     public void setLista( List<Voo> lista )

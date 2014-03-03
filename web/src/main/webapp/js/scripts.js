@@ -7,6 +7,11 @@ $(document).ready(function() {
 	$( '.menu li' ).hover( function() {
 		$elemento = $( this ).children();
 		$elemento.toggleClass( "active" );
+		$url = $( "a",  this ).attr('href');
+	});
+
+	$( '.menu li' ).on( "click", function() {
+		window.location.href = $url;
 	});
 
 	$(".data").mask("99/99/9999");

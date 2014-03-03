@@ -2,11 +2,8 @@ package br.com.fiap.web.controller;
 
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import br.com.fiap.web.dao.ClienteDaoImpl;
 import br.com.fiap.web.dao.JpaGenericDao;
@@ -26,28 +23,6 @@ public class ClienteController
     {
 	entity = new ClienteEntity();
 	listagem();
-    }
-
-    public String login( )
-    {
-	List<ClienteEntity> lista = dao.findEspecific( entity );
-	HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-		.getExternalContext().getSession( true );
-
-	if ( lista.size() > 0 )
-	{
-	    session.setAttribute( "autenticado_chave", "ok" );
-	    listagem();
-	    new Redirecionador().redirecionar( "seguro/lista_clientes.xhtml" );
-	    return "";
-	} else
-	{
-	    FacesContext.getCurrentInstance().addMessage(
-		    "field_id",
-		    new FacesMessage( FacesMessage.SEVERITY_ERROR,
-			    "Usuário ou senha incorreta", "error message2" ) );
-	}
-	return "";
     }
 
     public String listagem( )

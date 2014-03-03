@@ -5,13 +5,21 @@ import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.web.utils.Redirecionador;
 
-@ManagedBean(name="geral_controller")
+@ManagedBean(name = "geral_controller")
 @SessionScoped
-public class GeralController {
-	
-	public String home(){
-		new Redirecionador().redirecionar("index.xhtml");
-		return "";
-	}
-	
+public class GeralController
+{
+
+    public String home( )
+    {
+	new Redirecionador().redirecionar( "index.xhtml" );
+	return "";
+    }
+
+    public String home_simples( )
+    {
+	new Redirecionador().redirecionar( "index_simples.xhtml" );
+	return "";
+    }
+
 }
