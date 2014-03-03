@@ -1,6 +1,7 @@
 package br.com.fiap.web.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -24,8 +25,10 @@ public class VooController
     List<Voo> lista;
     List<Trecho> listaDeTrechos;
     public List<SelectItem> listaDeTrechos2;
-    Integer selectItem = new Integer(0);
+    Integer selectItem = new Integer( 0 );
     Trecho trecho;
+    Date dataIda;
+    Date dataVolta;
 
     public Integer getSelectItem( )
     {
@@ -37,7 +40,6 @@ public class VooController
 	this.selectItem = selectItem;
     }
 
-
     public VooController()
     {
 	entity = new Voo();
@@ -46,6 +48,76 @@ public class VooController
 	listaDeTrechos = daoTrecho.findAll();
     }
 
+    public String save( )
+    {
+	if ( entity.getId() == 0 )
+	{
+	    dao.insert( entity );
+	} else
+	{
+	    dao.update( entity );
+	}
+	entity = new Voo();
+	lista = dao.findAll();
+	new Redirecionador().redirecionar( "lista_voos.xhtml" );
+	return "";
+    }
+
+    public String listagem( )
+    {
+	entity = new Voo();
+	lista = dao.findAll();
+	// new Redirecionador().redirecionar( "lista_voos.xhtml" );
+	return "";
+    }
+
+    public String remove( )
+    {
+	dao.delete( entity.getId() );
+	listagem();
+	return "";
+    }
+
+    public String incAlt( )
+    {
+	entity = dao.findById( entity.getId() );
+	new Redirecionador().redirecionar( "inserir_voo.xhtml" );
+	return "";
+    }
+
+    public String prepareInsert( )
+    {
+	entity = new Voo();
+	System.out.println( "vamos inserir?" );
+	new Redirecionador().redirecionar( "inserir_voo.xhtml" );
+	return "";
+    }
+
+    public String buscarVoos( )
+    {
+	String origem = trecho.getOrigem();
+	String destino = trecho.getDestino();
+
+	System.out.println( "Origem: " + origem );
+	System.out.println( "Destino: " + destino );
+	System.out.println( "Data Ida: " + dataIda );
+	System.out.println( "Data Volta: " + dataVolta );
+
+	//BRUNO - buscar os vôos com os parâmetros passados
+	lista = dao.findAll();
+
+	new Redirecionador().redirecionar( "resultado_busca_voos.xhtml" );
+	return "resultado_busca_voos.xhtml";
+    }
+
+    public void reservar( )
+    {
+	System.out.println( "Reservando o vôo: " + entity.getId() );
+	//BRUNO - Efetivar a reserva
+	new Redirecionador().redirecionar( "reserva_sucesso.xhtml" );
+    }
+
+    // GETTERS AND SETTERS
     public List<SelectItem> getListaDeTrechos2( )
     {
 	if ( listaDeTrechos2 == null )
@@ -89,51 +161,6 @@ public class VooController
 	this.trecho = trecho;
     }
 
-    public String save( )
-    {
-	if ( entity.getId() == 0 )
-	{
-	    dao.insert( entity );
-	} else
-	{
-	    dao.update( entity );
-	}
-	entity = new Voo();
-	lista = dao.findAll();
-	new Redirecionador().redirecionar( "lista_voos.xhtml" );
-	return "";
-    }
-
-    public String listagem( )
-    {
-	entity = new Voo();
-	lista = dao.findAll();
-	new Redirecionador().redirecionar( "lista_voos.xhtml" );
-	return "lista_voos.xhtml";
-    }
-
-    public String remove( )
-    {
-	dao.delete( entity.getId() );
-	listagem();
-	return "";
-    }
-
-    public String incAlt( )
-    {
-	entity = dao.findById( entity.getId() );
-	new Redirecionador().redirecionar( "inserir_voo.xhtml" );
-	return "";
-    }
-
-    public String prepareInsert( )
-    {
-	entity = new Voo();
-	System.out.println( "vamos inserir?" );
-	new Redirecionador().redirecionar( "inserir_voo.xhtml" );
-	return "";
-    }
-
     public Voo getEntity( )
     {
 	return entity;
@@ -152,5 +179,25 @@ public class VooController
     public void setLista( List<Voo> lista )
     {
 	this.lista = lista;
+    }
+
+    public Date getDataIda( )
+    {
+	return dataIda;
+    }
+
+    public void setDataIda( Date dataIda )
+    {
+	this.dataIda = dataIda;
+    }
+
+    public Date getDataVolta( )
+    {
+	return dataVolta;
+    }
+
+    public void setDataVolta( Date dataVolta )
+    {
+	this.dataVolta = dataVolta;
     }
 }

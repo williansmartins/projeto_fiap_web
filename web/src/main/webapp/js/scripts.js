@@ -7,9 +7,9 @@ $(document).ready(function() {
 	$( '.menu li' ).hover( function() {
 		$elemento = $( this ).children();
 		$elemento.toggleClass( "active" );
-//		$( this ).('a').csscolor: rgb(255, 124, 16); */
-		/* 	text-decoration: none; */
 	});
+
+	$(".data").mask("99/99/9999");
 	
 } );
 
