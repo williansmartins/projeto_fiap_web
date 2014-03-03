@@ -89,24 +89,43 @@ body{
 	display: block;
 	margin-left: 33px;
 	background-image:url(../img/sprite-menu-superior.png);
-}
-.menu .trechos .img{
-	background-position: -20px -20px;
-}
-.menu .reservas .img{
-	background-position: -20px 0px;
+	cursor: pointer;
 }
 .menu .clientes .img{
 	background-position: -20px -100px;
 }
-.menu .assentos .img{
-	background-position: -20px -156px;
+.menu .clientes .img:hover{
+	background-position: -0px -100px;
+}
+.menu .trechos .img{
+	background-position: -20px -20px;
+}
+.menu .trechos .img:hover{
+	background-position: -0px -20px;
 }
 .menu .voos .img{
 	background-position: -20px -0px;
 }
+.menu .voos .img:hover{
+	background-position: -0px -0px;
+}
+.menu .reservas .img{
+	background-position: -20px 0px;
+}
+.menu .reservas .img:hover{
+	background-position: -0px 0px;
+}
+.menu .assentos .img{
+	background-position: -20px -156px;
+}
+.menu .assentos .img:hover{
+	background-position: -0px -156px;
+}
 .menu .logout .img{
 	background-position: -24px -117px;
+}
+.menu .logout .img:hover{
+	background-position: -4px -117px;
 }
 /*-----------------------------------------------------------------------*/
 .form1{
