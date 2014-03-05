@@ -22,7 +22,7 @@ public class ClienteController
     public ClienteController()
     {
 	entity = new ClienteEntity();
-	listagem();
+	lista = dao.findAll();
     }
 
     public String listagem( )
@@ -42,10 +42,18 @@ public class ClienteController
 	return listagem();
     }
 
-    public void remove( )
+    public String saveSimples( )
     {
-	dao.delete( entity.getId() );
-	listagem();
+	dao.insert( entity );
+	entity = new ClienteEntity();
+	new Redirecionador().redirecionar( "novo-usuario-sucesso.xhtml" );
+	return "";
+    }
+
+    public String remove( )
+    {
+	dao.delete( entity.getId() ); 
+	return listagem();
     }
 
     public String incAlt( )

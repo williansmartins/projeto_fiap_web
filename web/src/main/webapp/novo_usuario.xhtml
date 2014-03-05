@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
     	<ui:composition template="templates/templateLogin.xhtml">
  			<ui:define name="titulo">
@@ -12,24 +12,29 @@
  			</ui:define>
  			<ui:define name="palco">
 				<div class="conteudo">
-					<h1 class="centro">Tela de Login</h1>
+					<h1 class="centro">Cadastro de novo Cliente</h1>
 					<h:form >
 						<div class="tabela"> 
 						    <div class="labels">
+						        <label for="code">Nome</label>
+						        <h:inputText type="text" class="form-control" value="#{cliente_controller.entity.nome}" />
+						    </div>
+						    <div class="labels">
 						        <label for="code">Login</label>
-								<h:inputText type="text" class="form-control" value="#{login_controller.entity.login}" />
+								<h:inputText type="text" class="form-control" value="#{cliente_controller.entity.login}" />
 						    </div>
 						    <div class="labels">
 						        <label for="code">Senha</label>
-								<h:inputSecret type="text" class="form-control" value="#{login_controller.entity.senha}" />
+								<h:inputText type="text" class="form-control" value="#{cliente_controller.entity.senha}" />
 						    </div>
 						</div>
 					    <br />
-					    <h:commandButton action="#{login_controller.login}" class="btn btn-primary " value="Entrar" />
-						<i class="icon-search icon-white"></i>
-					    <h:button outcome="novo_usuario" class="btn btn-primary " value="Novo Usuário" />
+					    <h:commandButton action="#{cliente_controller.saveSimples}" class="btn btn-primary " value="Salvar" />
+					    <i class="icon-search icon-white"></i>
+					    <h:commandButton action="#{geral_controller.home}" class="btn btn-primary " value="Início" />
+					    <i class="icon-search icon-white"></i> 
 					</h:form>
-		      	</div>
+		      	</div>						
  			</ui:define>
  			<ui:define name="rodape">
  			</ui:define>

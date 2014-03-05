@@ -47,7 +47,7 @@
 				    				</h:commandButton>
 				    				 &nbsp;
 				    				<input type="button" class="btn btn-danger" value="Remover" onclick="confirmacao(#{obj.id})"/>
-				    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{cliente_controller.remove()}">
+				    				<h:commandButton style="display:none" class="objeto_#{obj.id}" styleClass="btn btn-danger" value="Remover" action="#{cliente_controller.remove}">
 				    					<f:setPropertyActionListener target="#{cliente_controller.entity}" value="#{obj}"></f:setPropertyActionListener>
 				    				</h:commandButton>
 				    				

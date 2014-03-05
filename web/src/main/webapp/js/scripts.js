@@ -8,6 +8,7 @@ $(document).ready(function() {
 		$elemento = $( this ).children();
 		$elemento.toggleClass( "active" );
 		$url = $( "a",  this ).attr('href');
+		console.info("opa");
 	});
 
 	$( '.menu li' ).on( "click", function() {

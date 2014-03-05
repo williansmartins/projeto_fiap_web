@@ -35,10 +35,10 @@ public class LoginController
 	List<ClienteEntity> lista = dao.findEspecific( entity );
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
 		.getExternalContext().getSession( true );
-	entity = lista.get( 0 );
 
 	if ( lista!=null && lista.size() > 0 )
 	{
+	    entity = lista.get( 0 );
 	    session.setAttribute( "autenticado_chave", "ok" );
 	    if( entity.getLogin().equalsIgnoreCase( "admin" )){
 		new Redirecionador().redirecionar( "seguro/index.xhtml" );
